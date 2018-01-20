@@ -126,7 +126,7 @@ app.get('/', function(req, res) {
   return res.send({'hello':'world'});
 });
 
-app.listen(5000, function() {
+app.listen(process.env.PORT || 5000, function() {
   console.log('att app listening on 0.0.0.0:5000!');
   // getAttRepos();
   getAttRepos().catch(() => {});
