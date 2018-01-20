@@ -83,7 +83,17 @@ async function getAttRepos() {
   });
 
   // No unhandled rejection!
-  await Promise.reject(new Error('test'));
+  // await Promise.reject(new Error('test'));
+  process.on('unhandledRejection', error => {
+    // Will print "unhandledRejection err is not defined"
+    console.log('unhandledRejection', error.message);
+  });
+
+  new Promise((_, reject) => reject(new Error('woops'))).
+    catch(error => {
+      // Will not execute
+      console.log('caught', err.message);
+    });
 }
 
 app.get('/list', function(req, res) {
