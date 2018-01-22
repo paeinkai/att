@@ -5,7 +5,7 @@ var app = express(),
 // basic auth
 var gh = new GitHub({
    username: 'paeinkai',
-   password: 'calculus7318'
+   password: 'reset_password'
 });
 
 var stored_repos = [];
